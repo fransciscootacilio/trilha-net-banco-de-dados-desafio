@@ -1,0 +1,65 @@
+-- 1 Query
+select Nome, Ano from Filmes
+
+-- 2 Query
+
+select Nome, Ano, Duracao from filmes
+order by Ano
+
+-- 3 Query
+
+select Nome, Ano, Duracao from filmes
+where Nome = 'De volta para o futuro'
+
+-- 4 Query
+
+select Nome, Ano, Duracao from Filmes
+where Ano = 1997
+
+-- 5 Query
+
+select Nome, Ano, Duracao from Filmes
+where Ano > 2000
+
+-- 6 Query
+
+select Nome, Ano, Duracao from filmes	
+where duracao > 100 and Duracao < 150
+order by Duracao asc
+
+-- 7 Query
+
+select Ano, COUNT(Ano) Quantidade from filmes
+group by Ano
+order by Quantidade desc
+
+-- 8 Query
+
+select Id, UPPER(PrimeiroNome), UPPER(UltimoNome), Genero from Atores
+where Genero = 'M'
+
+-- 9 Query
+
+select * from Atores
+where Genero = 'F'
+order by PrimeiroNome asc
+
+-- 10 Query
+
+select Filmes.Nome, Generos.Genero from Filmes
+ inner join FilmesGenero on FilmesGenero.IdFilme = Filmes.Id
+ inner join Generos on FilmesGenero.IdGenero = Generos.Id
+
+ -- 11 Query
+
+ select Filmes.Nome, Generos.Genero from Filmes
+ inner join FilmesGenero on FilmesGenero.IdFilme = Filmes.Id
+ inner join Generos on FilmesGenero.IdGenero = Generos.Id
+ where Generos.Genero = 'Mistério'
+
+ -- 12 Query
+ 
+ select Filmes.Nome, Atores.PrimeiroNome, Atores.UltimoNome, ElencoFilme.Papel
+ from Filmes
+ inner join ElencoFilme on ElencoFilme.IdFilme = Filmes.Id
+ inner join Atores on Atores.Id = ElencoFilme.IdAtor
